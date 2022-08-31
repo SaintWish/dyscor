@@ -1,0 +1,23 @@
+package command
+
+import (
+	"sync"
+
+	"github.com/bwmarrin/discordgo"
+)
+
+type CommandApp struct {
+	s *discordgo.Session
+
+	slashCommands map[string]SlashCommand
+	slashCmdLock sync.RWMutex
+
+	userCommands map[string]UserCommand
+	userCmdLock sync.RWMutex
+}
+
+func NewCommandApplication(session *discordgo) &CommandApp {
+	return &CommandApp {
+		s: session
+	}
+}
