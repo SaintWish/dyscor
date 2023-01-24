@@ -7,4 +7,5 @@ import (
 type SlashCommand struct {
 	Name string
 	Description string
+	Options []*discordgo.ApplicationCommandOption
 }

@@ -6,7 +6,7 @@ import (
 	"github.com/bwmarrin/discordgo"
 )
 
-type CommandApp struct {
+type CommandSystem struct {
 	s *discordgo.Session
 
 	slashCommands map[string]SlashCommand
@@ -16,7 +16,7 @@ type CommandApp struct {
 	userCmdLock sync.RWMutex
 }
 
-func NewCommandApplication(session *discordgo) &CommandApp {
+func NewCommandSystem(session *discordgo) *CommandSystem {
 	return &CommandApp {
 		s: session
 	}

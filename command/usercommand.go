@@ -13,15 +13,15 @@ type UserCommand struct {
 	Perms int
 
 	SubCommands map[string]SubUserCommand
-	Run func(*discordgo.Session, *discordgo.MessageCreate, *Command, []string)
+	Run func(*discordgo.MessageCreate, *Command, []string)
 }
 
 type SubUserCommand struct {
 	Name string
 	Desc string
-	IsDM string
+	IsDM bool
 
 	Perms int
 
-	Run func(*discordgo.Session, *discordgo.MessageCreate, *SubCommand, []string)
+	Run func(*discordgo.MessageCreate, *SubCommand, []string)
 }
